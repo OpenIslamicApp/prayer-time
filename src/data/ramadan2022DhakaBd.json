@@ -1,0 +1,82 @@
+[
+  {
+    "day":1,
+    "times": {
+      "sehri":0427,
+      "fazar": 0433,
+      "iftar": 1819
+    }
+  },
+  {
+    "day":2,
+    "times": {
+      "sehri":0426,
+      "fazar": 0432,
+      "iftar": 1819
+    }
+  },
+  {
+    "day":3,
+    "times": {
+      "sehri":0424,
+      "fazar": 0430,
+      "iftar": 1820
+    }
+  },
+  {
+    "day":4,
+    "times": {
+      "sehri":0424,
+      "fazar": 0421,
+      "iftar": 1820
+    }
+  },
+  {
+    "day":5,
+    "times": {
+      "sehri":0423,
+      "fazar": 0429,
+      "iftar": 1821
+    }
+  },
+  {
+    "day":6,
+    "times": {
+      "sehri":0422,
+      "fazar": 0428,
+      "iftar": 1822
+    }
+  },
+  {
+    "day":7,
+    "times": {
+      "sehri":0421,
+      "fazar": 0427,
+      "iftar": 1821
+    }
+  },
+  {
+    "day":8,
+    "times": {
+      "sehri":0420,
+      "fazar": 0426,
+      "iftar": 1822
+    }
+  },
+  {
+    "day":9,
+    "times": {
+      "sehri":0419,
+      "fazar": 0425,
+      "iftar": 1822
+    }
+  },
+  {
+    "day":10,
+    "times": {
+      "sehri":0418,
+      "fazar": 0425,
+      "iftar": 1823
+    }
+  }
+]
