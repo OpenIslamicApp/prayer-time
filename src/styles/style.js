@@ -71,5 +71,8 @@ export const HomeContainer = styled.main`
     gap: 20px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 358px) {
+      grid-template-columns: 1fr;
+    }
   }
 `;
