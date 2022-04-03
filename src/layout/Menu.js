@@ -1,7 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Menu({ menu, language, setLanguage }) {
+export default function Menu({
+  menu,
+  language,
+  setLanguage,
+  country,
+  setCountry,
+  state,
+  setState,
+}) {
   return (
     <Container className={menu ? "open" : ""}>
       <div className="setting_container">
@@ -16,6 +24,36 @@ export default function Menu({ menu, language, setLanguage }) {
           <option value="english">English</option>
         </select>
       </div>
+      <div className="setting_container">
+        <label htmlFor="country">Select Country:</label>
+        <select
+          name="country"
+          id=""
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+        >
+          <option value="bd">Bangladesh</option>
+        </select>
+      </div>
+
+      {/* states for Bangladesh */}
+      <>
+        {country === "bd" ? (
+          <div className="setting_container">
+            <label htmlFor="state">Select State:</label>
+            <select
+              name="state"
+              id=""
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+            >
+              <option value="dhaka">Dhaka</option>
+            </select>
+          </div>
+        ) : (
+          ""
+        )}
+      </>
     </Container>
   );
 }
@@ -33,6 +71,7 @@ const Container = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
   &.open {
     transform: translateY(0);
   }
