@@ -107,8 +107,8 @@ export default function BodyDhaka({ language }) {
           TIME !== undefined &&
           TIME !== null &&
           DAY &&
-          TIME[DAY].maghrib
-            ? TIME[DAY].maghrib
+          TIME[DAY].magrib
+            ? TIME[DAY].magrib
             : "00:00"
         }
       />

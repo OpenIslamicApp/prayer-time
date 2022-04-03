@@ -23,12 +23,12 @@ const Container = styled.div`
     &_name {
       font-size: calc(13px + 2vmin);
       font-weight: 600;
-      color: var(--color-gray);
+      color: var(--color-gray-deep);
     }
     &_Time {
       font-size: calc(17.5px + 2vmin);
       font-weight: 600;
-      color: var(--color-gray-deep);
+      color: var(--color-gray);
     }
   }
 `;
