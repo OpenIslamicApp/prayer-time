@@ -23,7 +23,7 @@
 
 body {
   /* background-color: var(--bg); */
-  background-color: var(--black);
+  background-color: var(--bg-sec);
   color: var(--color-pri);
   margin: 0;
   font-family: "Ubuntu", sans-serif;
