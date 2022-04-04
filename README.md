@@ -14,7 +14,7 @@ So feel free to contribute along the way.
 
 ## Hosting
 
-- firebase
+- vercel
 
 ## Contribution guide
 
