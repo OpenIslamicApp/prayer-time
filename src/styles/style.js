@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.main`
-  background-color: var(--bg);
+  background-color: var(--bg-sec);
   max-width: 500px;
   margin: 0 auto;
   min-height: 100vh;
