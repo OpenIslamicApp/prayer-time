@@ -55,7 +55,7 @@ export const april = [
   }, // 5
   {
     sehri: "04:24 AM",
-    fajar: "04:21 AM",
+    fajar: "04:30 AM",
     sunrise: "05:32 AM",
     dhuhur: "12:05 PM",
     asr: "04:29 PM",
