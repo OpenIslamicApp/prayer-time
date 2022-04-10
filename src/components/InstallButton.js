@@ -38,7 +38,7 @@ export default function InstallButton({
             </button>
             <button
               className="modal_container__button_close"
-              onClick={()=>closeModal(false);}
+              onClick={()=>closeModal(false)}
             >
               Close
             </button>
