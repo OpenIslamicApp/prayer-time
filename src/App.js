@@ -11,6 +11,7 @@ import Body from "./layout/Body";
 // translation
 import { timeKeyBangla } from "./data/timeKey/bangla";
 import { timeKeyEnglish } from "./data/timeKey/english";
+import Footer from "./layout/Footer";
 
 function App() {
   const [menu, setMenu] = useState(false);
@@ -60,6 +61,7 @@ function App() {
         setState={setState}
       />
       <Body language={LANGU} country={Country} state={State} />
+      <Footer />
     </HomeContainer>
   );
 }
