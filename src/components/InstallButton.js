@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export default function InstallButton({ deferredPrompt, closeModal }) {
+export default function InstallButton({
+  deferredPrompt,
+  setDeferredPrompt,
+  closeModal
+}) {
   const handleClick = () => {
     deferredPrompt.prompt();
     deferredPrompt.userChoice.then((choiceResult) => {
@@ -8,10 +12,11 @@ export default function InstallButton({ deferredPrompt, closeModal }) {
         console.log("User accepted the A2HS prompt");
       } else {
         console.log("User dismissed the A2HS prompt");
+        closeModal(false);
       }
       closeModal(false);
     });
-    deferredPrompt = null;
+    setDeferredPrompt();
   };
 
   return (
