@@ -133,9 +133,11 @@ const Container = styled.div`
     }
     &__button {
       display: flex;
+      align-items: center;
       justify-content: center;
       padding: 10px;
       gap: 24px;
+      flex-wrap: wrap;
       &_close {
         padding: 10px 22.5px 12px;
         display: inline;
