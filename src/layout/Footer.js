@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <Container>
       By <a href="https://github.com/OpenIslamicApp/">OpenIslamicApp</a>,{" "}
-      <a href="https://ah-jim.com">Akhlak Hossain Jim</a>, and{" "}
+      <a href="https://ahjim.com">Akhlak Hossain Jim</a>, and{" "}
       <a href="https://github.com/OpenIslamicApp/prayer-time/graphs/contributors">
         contributors.
       </a>
