@@ -35,6 +35,15 @@ const Container = styled.footer`
   color: var(--color-gray);
   background-color: var(--bg-sec);
   font-size: calc(2px + 2vmin);
+  &::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    // background-color: var(--nav-bg);
+    top: 0;
+    left: 0;
+    right: 0;
+  }
   a,
   span {
     color: var(--color-th);

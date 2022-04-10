@@ -12,9 +12,11 @@ import Body from "./layout/Body";
 import { timeKeyBangla } from "./data/timeKey/bangla";
 import { timeKeyEnglish } from "./data/timeKey/english";
 import Footer from "./layout/Footer";
+import InstallButton from "./components/InstallButton";
 
 function App() {
   const [menu, setMenu] = useState(false);
+  const [InstallModal, setInstallModal] = useState(false);
 
   const [language, setLanguage] = useState(
     localStorage.language ? localStorage.language : "bangla"
@@ -48,21 +50,37 @@ function App() {
     setTime(new Date().toLocaleTimeString());
   }, 1000);
 
+  let deferredPrompt;
+
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    setInstallModal(true);
+  });
+
   return (
-    <HomeContainer>
-      <Header Time={Time} menu={menu} setMenu={setMenu} />
-      <Menu
-        menu={menu}
-        language={language}
-        setLanguage={setLanguage}
-        country={Country}
-        setCountry={setCountry}
-        state={State}
-        setState={setState}
-      />
-      <Body language={LANGU} country={Country} state={State} />
+    <>
+      <HomeContainer>
+        <Header Time={Time} menu={menu} setMenu={setMenu} />
+        <Menu
+          menu={menu}
+          language={language}
+          setLanguage={setLanguage}
+          country={Country}
+          setCountry={setCountry}
+          state={State}
+          setState={setState}
+        />
+        <Body language={LANGU} country={Country} state={State} />
+      </HomeContainer>
       <Footer />
-    </HomeContainer>
+      {InstallModal === true && (
+        <InstallButton
+          deferredPrompt={deferredPrompt}
+          closeModal={setInstallModal}
+        />
+      )}
+    </>
   );
 }
 
