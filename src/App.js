@@ -15,7 +15,6 @@ import { timeKeyEnglish } from "./data/timeKey/english";
 
 // components
 import InstallButton from "./components/InstallButton";
-import HowToInstallModal from "./components/InstallModal";
 
 function App() {
   const [menu, setMenu] = useState(false);
