@@ -36,6 +36,12 @@ export default function InstallButton({
             >
               Install
             </button>
+            <button
+              className="modal_container__button_close"
+              onClick={()=>closeModal(false);}
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>
@@ -129,6 +135,7 @@ const Container = styled.div`
       display: flex;
       justify-content: center;
       padding: 10px;
+      gap: 24px;
       &_close {
         padding: 10px 22.5px 12px;
         display: inline;
