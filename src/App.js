@@ -53,11 +53,11 @@ function App() {
     setTime(new Date().toLocaleTimeString());
   }, 1000);
 
-  var deferredPrompt;
+  const [deferredPrompt, setDeferredPrompt] = useState();
 
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
-    deferredPrompt = e;
+    setDeferredPrompt(e);
     setInstallModal(true);
   });
 
@@ -77,15 +77,14 @@ function App() {
         <Body language={LANGU} country={Country} state={State} />
       </HomeContainer>
       <Footer />
-      {InstallModal === 2 && (
+      {InstallModal === true && (
         <InstallButton
           deferredPrompt={deferredPrompt}
+          setDeferredPrompt={setDeferredPrompt}
           closeModal={setInstallModal}
         />
       )}
-      {InstallModal === true && (
-        <HowToInstallModal closeModal={setInstallModal} />
-      )}
+      {InstallModal === 2 && <HowToInstallModal closeModal={setInstallModal} />}
     </>
   );
 }
