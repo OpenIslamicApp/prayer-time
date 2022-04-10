@@ -84,7 +84,6 @@ function App() {
           closeModal={setInstallModal}
         />
       )}
-      {InstallModal === 2 && <HowToInstallModal closeModal={setInstallModal} />}
     </>
   );
 }
