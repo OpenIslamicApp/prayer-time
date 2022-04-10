@@ -7,12 +7,15 @@ import { HomeContainer } from "./styles/style";
 import Header from "./layout/Header";
 import Menu from "./layout/Menu";
 import Body from "./layout/Body";
+import Footer from "./layout/Footer";
 
 // translation
 import { timeKeyBangla } from "./data/timeKey/bangla";
 import { timeKeyEnglish } from "./data/timeKey/english";
-import Footer from "./layout/Footer";
+
+// components
 import InstallButton from "./components/InstallButton";
+import HowToInstallModal from "./components/InstallModal";
 
 function App() {
   const [menu, setMenu] = useState(false);
@@ -50,7 +53,7 @@ function App() {
     setTime(new Date().toLocaleTimeString());
   }, 1000);
 
-  let deferredPrompt;
+  var deferredPrompt;
 
   window.addEventListener("beforeinstallprompt", (e) => {
     e.preventDefault();
@@ -74,11 +77,14 @@ function App() {
         <Body language={LANGU} country={Country} state={State} />
       </HomeContainer>
       <Footer />
-      {InstallModal === true && (
+      {InstallModal === 2 && (
         <InstallButton
           deferredPrompt={deferredPrompt}
           closeModal={setInstallModal}
         />
+      )}
+      {InstallModal === true && (
+        <HowToInstallModal closeModal={setInstallModal} />
       )}
     </>
   );

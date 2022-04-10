@@ -6,10 +6,45 @@ export default function HowToInstallModal({ closeModal }) {
       <div className="modal___fo_bg" onClick={() => closeModal(false)}></div>
       <div className="modal__sc">
         <div className="modal_container">
-          <h2 className="modal_container__title">
-            Magic Transaction Guide (Juno StakeDrop Campaign)
-          </h2>
-
+          <h2 className="modal_container__title">How To Install the App.</h2>
+          <ol>
+            <li>Open Chrome Browser on your device.</li>
+            <li>
+              In Mobile Device:
+              <ol>
+                <li>See the Icon at the upper right corner of the screen.</li>
+                <img src="/install/phone_step-3.png" alt="" />
+                <li>Click on It, and a menu pops up.</li>
+                <li>
+                  Scroll till you see the option <em>Install app</em>.
+                </li>
+                <img src="/install/phone_step-4.png" alt="" />
+                <li>
+                  Click on it, and a modal pops up, the hit{" "}
+                  <em>
+                    <strong>Install</strong>
+                  </em>
+                </li>
+                <img src="/install/phone_step-5.png" alt="" />
+                <li>
+                  And You should see some icon in the home screen like this.
+                </li>
+                <img src="/install/phone_step-6.png" alt="" />
+                and you are done.
+              </ol>
+            </li>
+            <h3>Or</h3>
+            <li>
+              {" "}
+              In Computer devices:
+              <ol>
+                <li>In the address bar you should see a icon:</li>
+                <img src="/install/pc-install.png" alt="address bar" />
+                <li>Click on the icon.</li>
+                <li>Click on Install Button.</li>
+              </ol>
+            </li>
+          </ol>
           <div className="modal_container__button">
             <button
               className="modal_container__button_close"
@@ -51,6 +86,7 @@ const Container = styled.div`
   }
   .modal__sc {
     height: 100%;
+    width: min(460px, 100%);
     position: relative;
     z-index: 3;
     background-color: var(--bg);
@@ -91,6 +127,17 @@ const Container = styled.div`
       text-align: center;
       padding-bottom: 24px;
     }
+    ol,
+    ul {
+      //   list-style: upper-alpha;
+      list-style-position: inside;
+      li {
+        padding: 10px;
+      }
+      img {
+        max-width: 100%;
+      }
+    }
     p {
       font: var(--p-m);
       color: var(--gray-deep);
@@ -111,6 +158,7 @@ const Container = styled.div`
     &__button {
       display: flex;
       justify-content: flex-end;
+      padding: 5px;
       &_close {
         padding: 10px 22.5px 12px;
         display: inline;

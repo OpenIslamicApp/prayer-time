@@ -123,7 +123,7 @@ const Container = styled.div`
     &__button {
       display: flex;
       justify-content: center;
-      padding-bottom: 10px;
+      padding: 10px;
       &_close {
         padding: 10px 22.5px 12px;
         display: inline;
