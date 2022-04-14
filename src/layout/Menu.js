@@ -9,6 +9,7 @@ export default function Menu({
   setCountry,
   state,
   setState,
+  appInfoModal,
 }) {
   return (
     <Container className={menu ? "open" : ""}>
@@ -55,6 +56,11 @@ export default function Menu({
           ""
         )}
       </>
+
+      <div className="setting_container">
+        Click to see app{" "}
+        <button onClick={() => appInfoModal(true)}>info</button>
+      </div>
     </Container>
   );
 }
@@ -64,6 +70,7 @@ const Container = styled.nav`
   width: 100%;
   height: 100%;
   left: 0;
+  z-index: 90;
   background-color: var(--nav-bg);
   transition: all 0.2s ease-in-out;
   transform: translateY(-200%);
@@ -82,6 +89,15 @@ const Container = styled.nav`
     gap: 10px;
     font-size: calc(16px + 2vmin);
     select {
+      font-size: calc(13px + 2vmin);
+      color: var(--color-gray);
+      background-color: var(--bg-sec);
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+    button {
       font-size: calc(13px + 2vmin);
       color: var(--color-gray);
       background-color: var(--bg-sec);

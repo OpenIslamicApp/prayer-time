@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 
-export default function Footer() {
+export default function Footer({ appInfoModal }) {
   return (
     <Container>
       By <a href="https://github.com/OpenIslamicApp/">OpenIslamicApp</a>,{" "}
@@ -17,7 +17,7 @@ export default function Footer() {
       </a>{" "}
       or <a href="https://github.com/OpenIslamicApp/prayer-time/">contribute</a>
       .{" "}
-      <span>
+      <span onClick={() => appInfoModal(true)}>
         <BsFillInfoCircleFill />
       </span>
     </Container>

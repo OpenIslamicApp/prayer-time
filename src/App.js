@@ -16,13 +16,14 @@ import { timeKeyArabic } from "./data/timeKey/arabic";
 
 // components
 import InstallButton from "./components/InstallButton";
+import AppInfo from "./components/AppInfo";
 
 function App() {
   const [menu, setMenu] = useState(false);
   const [InstallModal, setInstallModal] = useState(false);
 
   const [language, setLanguage] = useState(
-    localStorage.language ? localStorage.language : "bangla"
+    localStorage.language ? localStorage.language : "english"
   );
   useEffect(() => {
     localStorage.setItem("language", language);
@@ -50,10 +51,7 @@ function App() {
     localStorage.setItem("state", State);
   }, [State]);
 
-  const [Time, setTime] = useState();
-  setInterval(() => {
-    setTime(new Date().toLocaleTimeString());
-  }, 1000);
+  const [AppInfoModal, setAppInfoModal] = useState();
 
   const [deferredPrompt, setDeferredPrompt] = useState();
 
@@ -66,7 +64,7 @@ function App() {
   return (
     <>
       <HomeContainer>
-        <Header Time={Time} menu={menu} setMenu={setMenu} />
+        <Header menu={menu} setMenu={setMenu} />
         <Menu
           menu={menu}
           language={language}
@@ -75,10 +73,11 @@ function App() {
           setCountry={setCountry}
           state={State}
           setState={setState}
+          appInfoModal={setAppInfoModal}
         />
         <Body language={LANGU} country={Country} state={State} />
       </HomeContainer>
-      <Footer />
+      <Footer appInfoModal={setAppInfoModal} />
       {InstallModal === true && (
         <InstallButton
           deferredPrompt={deferredPrompt}
@@ -86,6 +85,7 @@ function App() {
           closeModal={setInstallModal}
         />
       )}
+      {AppInfoModal === true && (<AppInfo modalState={AppInfoModal} closeModal={setAppInfoModal} />)}
     </>
   );
 }
