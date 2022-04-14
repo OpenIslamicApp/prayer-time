@@ -20,6 +20,7 @@ export default function Menu({
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
         >
+          <option value="arabic">Arabic</option>
           <option value="bangla">Bangla</option>
           <option value="english">English</option>
         </select>

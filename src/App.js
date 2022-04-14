@@ -12,6 +12,7 @@ import Footer from "./layout/Footer";
 // translation
 import { timeKeyBangla } from "./data/timeKey/bangla";
 import { timeKeyEnglish } from "./data/timeKey/english";
+import { timeKeyArabic } from "./data/timeKey/arabic";
 
 // components
 import InstallButton from "./components/InstallButton";
@@ -27,7 +28,9 @@ function App() {
     localStorage.setItem("language", language);
   }, [language]);
   const LANGU =
-    language === "bangla"
+    language === "arabic"
+      ? timeKeyArabic
+      : language === "bangla"
       ? timeKeyBangla
       : language === "english"
       ? timeKeyEnglish
