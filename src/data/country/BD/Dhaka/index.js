@@ -3,6 +3,7 @@ import TimeBox from "../../../../components/TimeBox";
 import { april } from "./april";
 import { march } from "./march";
 import { may } from "./may";
+import { june } from "./june";
 import { october } from "./october";
 import { september } from "./september";
 
@@ -20,7 +21,7 @@ export default function BodyDhaka({ language }) {
       : MONTH && MONTH === 4
       ? may
       : MONTH && MONTH === 5
-      ? []
+      ? june
       : MONTH && MONTH === 6
       ? []
       : MONTH && MONTH === 7
