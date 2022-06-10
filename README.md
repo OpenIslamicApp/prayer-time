@@ -21,8 +21,8 @@ So feel free to contribute along the way. And add your time zone.
 1. Fork the repository
 2. Clone the forked repo to your local machine
 3. Run `npm i` or  `npm install` in the terminal to install all the dependencies
-4. Start the project  in your local server by running `nom start` in the terminal
-5. Do the necessary changes in the necessary files
+4. Start the project  in your local server by running `npm start` in the terminal.
+5. Do the necessary changes in the required files
     - Write styles in [Styled-components](https://styled-components.com/)
     - Others in appropriate languages
 6. Create commit for every file change and
