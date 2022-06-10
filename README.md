@@ -1,9 +1,9 @@
-# Ramadan Calender
+# Prayer Time Calender
 
-This project is starting as a static Ramadan Calendar for Ramadan 2022 for Dhaka Bangladesh (GMT+6) and will support only the Bangla language.
-But I intend to make it dynamic and robust in the future.
+This project is had as a static Ramadan Calendar for Ramadan 2022 for Dhaka Bangladesh (GMT+6) and only in Bangla language.
+But now it has more almost all months in Dhaka Bangladesh (GMT+6) Times. And will start adding more areas of Bangladesh soon.
 
-So feel free to contribute along the way.
+So feel free to contribute along the way. And add your time zone.
 
 ## Frontend
 
