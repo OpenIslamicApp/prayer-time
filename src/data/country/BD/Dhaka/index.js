@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import TimeBox from "../../../../components/TimeBox";
-import { april } from "./april";
 import { march } from "./march";
+import { april } from "./april";
 import { may } from "./may";
 import { june } from "./june";
-import { october } from "./october";
+import { july } from "./july";
+import { august } from "./august";
 import { september } from "./september";
+import { october } from "./october";
+import { november } from "./november";
 
 export default function BodyDhaka({ language }) {
   const [MONTH, setMONTH] = useState(0);
@@ -23,15 +26,15 @@ export default function BodyDhaka({ language }) {
       : MONTH && MONTH === 5
       ? june
       : MONTH && MONTH === 6
-      ? []
+      ? july
       : MONTH && MONTH === 7
-      ? []
+      ? august
       : MONTH && MONTH === 8
       ? september
       : MONTH && MONTH === 9
       ? october
       : MONTH && MONTH === 10
-      ? []
+      ? november
       : MONTH && MONTH === 11
       ? []
       : [];
