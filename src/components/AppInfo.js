@@ -1,13 +1,41 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
+import { VscRepoForked, VscStarEmpty } from "react-icons/vsc";
+
 export default function AppInfo({ modalState, closeModal }) {
+  const [RepoOverview, setRepoOverview] = useState();
   const [LinesOfCode, setLinesOfCode] = useState();
+  const [Contributors, setContributors] = useState();
+  const [Versions, setVersions] = useState();
 
   useEffect(() => {
+    fetch("https://api.github.com/repos/OpenIslamicApp/prayer-time")
+      .then((response) => response.json())
+      .then((data) => setRepoOverview(data))
+      .catch((error) => {
+        alert(error);
+        console.log(error);
+      });
     fetch("https://api.github.com/repos/OpenIslamicApp/prayer-time/languages")
       .then((response) => response.json())
       .then((data) => setLinesOfCode(data.JavaScript + data.HTML + data.CSS))
+      .catch((error) => {
+        alert(error);
+        console.log(error);
+      });
+    fetch(
+      "https://api.github.com/repos/OpenIslamicApp/prayer-time/contributors"
+    )
+      .then((response) => response.json())
+      .then((data) => setContributors(data))
+      .catch((error) => {
+        alert(error);
+        console.log(error);
+      });
+    fetch("https://api.github.com/repos/OpenIslamicApp/prayer-time/releases")
+      .then((response) => response.json())
+      .then((data) => setVersions(data))
       .catch((error) => {
         alert(error);
         console.log(error);
@@ -24,7 +52,47 @@ export default function AppInfo({ modalState, closeModal }) {
           >
             +
           </div>
+          <h2>
+            Created @{" "}
+            {RepoOverview && (
+              <span>{new Date(RepoOverview.created_at).toUTCString()}</span>
+            )}
+          </h2>
+          <h2>
+            Last Updated @{" "}
+            {RepoOverview && (
+              <span>{new Date(RepoOverview.pushed_at).toUTCString()}</span>
+            )}
+          </h2>
+          <h2>
+            License: {RepoOverview && <span>{RepoOverview.license.name}</span>}
+          </h2>
+          <h2>Releases: {Versions && <span>{Versions.length}</span>}</h2>
+          <h2>
+            Current Version: {Versions && <span>{Versions[0].name}</span>}
+          </h2>
           <h2>Lines of code - {LinesOfCode && <span>{LinesOfCode}</span>}</h2>
+          <h2>Contributors:</h2>
+          {Contributors && (
+            <div className="info_container__contributors">
+              {React.Children.toArray(
+                Contributors.map((data) => (
+                  <div className="info_container__contributors_contributor">
+                    <img
+                      src={data.avatar_url}
+                      alt={data.login}
+                      title={`${data.login} contributions ${data.contributions}`}
+                    />
+                  </div>
+                ))
+              )}
+            </div>
+          )}
+          <h2>
+            <VscRepoForked /> <span>{RepoOverview && RepoOverview.forks}</span>{" "}
+            <VscStarEmpty />{" "}
+            <span>{RepoOverview && RepoOverview.stargazers_count}</span>
+          </h2>
         </div>
       </div>
     </Container>
@@ -72,10 +140,26 @@ const Container = styled.main`
       text-align: center;
       font-size: calc(8px + 2vmin);
       h2 {
-        font-size: calc(8px + 2vmin);
+        font-size: calc(6px + 2vmin);
+        padding-top: 16px;
         span {
-          font-size: calc(10px + 2vmin);
+          font-size: calc(5px + 2vmin);
           color: var(--color-th);
+        }
+      }
+    }
+    &__contributors {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 16px;
+      gap: 16px;
+      &_contributor {
+        width: 50px;
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 50%;
         }
       }
     }
