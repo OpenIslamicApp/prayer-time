@@ -12,32 +12,21 @@ import { november } from "./november";
 
 export default function BodyDhaka({ language }) {
   const [MONTH, setMONTH] = useState(0);
-  const TIME =
-    MONTH && MONTH === 0
-      ? []
-      : MONTH && MONTH === 1
-      ? []
-      : MONTH && MONTH === 2
-      ? march
-      : MONTH && MONTH === 3
-      ? april
-      : MONTH && MONTH === 4
-      ? may
-      : MONTH && MONTH === 5
-      ? june
-      : MONTH && MONTH === 6
-      ? july
-      : MONTH && MONTH === 7
-      ? august
-      : MONTH && MONTH === 8
-      ? september
-      : MONTH && MONTH === 9
-      ? october
-      : MONTH && MONTH === 10
-      ? november
-      : MONTH && MONTH === 11
-      ? []
-      : [];
+  const months = {
+    0: [],
+    1: [],
+    2: march,
+    3: april,
+    4: may,
+    5: june,
+    6: july,
+    7: august,
+    8: september,
+    9: october,
+    10: november,
+    11: [],
+  };
+  const TIME = MONTH && months[MONTH];
 
   const [DAY, setDAY] = useState();
 
@@ -46,92 +35,35 @@ export default function BodyDhaka({ language }) {
     setDAY(new Date().getDate());
   }, 1000);
 
+  const timeValidator = (tPar) => {
+    return TIME !== "" &&
+      TIME !== undefined &&
+      TIME !== null &&
+      DAY &&
+      TIME[DAY][tPar] &&
+      Array.isArray(TIME[DAY][tPar]) &&
+      TIME[DAY][tPar].length === 3
+      ? `${
+          TIME[DAY][tPar][0] < 10
+            ? `0${TIME[DAY][tPar][0]}`
+            : TIME[DAY][tPar][0]
+        }:${
+          TIME[DAY][tPar][1] < 10
+            ? `0${TIME[DAY][tPar][1]}`
+            : TIME[DAY][tPar][1]
+        } ${TIME[DAY][tPar][2]}`
+      : "00:00";
+  };
+
   return (
     <div className="body">
-      <TimeBox
-        name={language[0]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].sehri
-            ? TIME[DAY].sehri
-            : "00:00"
-        }
-      />
-      <TimeBox
-        name={language[1]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].fajar
-            ? TIME[DAY].fajar
-            : "00:00"
-        }
-      />
-      <TimeBox
-        name={language[2]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].sunrise
-            ? TIME[DAY].sunrise
-            : "00:00"
-        }
-      />
-      <TimeBox
-        name={language[3]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].dhuhur
-            ? TIME[DAY].dhuhur
-            : "00:00"
-        }
-      />
-      <TimeBox
-        name={language[4]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].asr
-            ? TIME[DAY].asr
-            : "00:00"
-        }
-      />
-      <TimeBox
-        name={language[5]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].magrib
-            ? TIME[DAY].magrib
-            : "00:00"
-        }
-      />
-      <TimeBox
-        name={language[6]}
-        time={
-          TIME !== "" &&
-          TIME !== undefined &&
-          TIME !== null &&
-          DAY &&
-          TIME[DAY].isha
-            ? TIME[DAY].isha
-            : "00:00"
-        }
-      />
+      <TimeBox name={language[0]} time={timeValidator("sehri")} />
+      <TimeBox name={language[1]} time={timeValidator("fajar")} />
+      <TimeBox name={language[2]} time={timeValidator("sunrise")} />
+      <TimeBox name={language[3]} time={timeValidator("dhuhur")} />
+      <TimeBox name={language[4]} time={timeValidator("asr")} />
+      <TimeBox name={language[5]} time={timeValidator("magrib")} />
+      <TimeBox name={language[6]} time={timeValidator("isha")} />
     </div>
   );
 }
