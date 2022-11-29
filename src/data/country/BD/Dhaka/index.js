@@ -9,6 +9,7 @@ import { august } from "./august";
 import { september } from "./september";
 import { october } from "./october";
 import { november } from "./november";
+import { december } from "./december";
 
 export default function BodyDhaka({ language }) {
   const [MONTH, setMONTH] = useState(0);
@@ -36,7 +37,7 @@ export default function BodyDhaka({ language }) {
       : MONTH && MONTH === 10
       ? november
       : MONTH && MONTH === 11
-      ? []
+      ? december
       : [];
 
   const [DAY, setDAY] = useState();
