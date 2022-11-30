@@ -25,7 +25,7 @@ export default function BodyDhaka({ language }) {
     8: september,
     9: october,
     10: november,
-    11: [],
+    11: december,
   };
   const TIME = MONTH && months[MONTH];
 
