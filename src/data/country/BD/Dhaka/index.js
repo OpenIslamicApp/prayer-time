@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import TimeBox from "../../../../components/TimeBox";
+import { january } from "./january";
+import { february } from "./february";
 import { march } from "./march";
 import { april } from "./april";
 import { may } from "./may";
@@ -12,27 +14,28 @@ import { november } from "./november";
 import { december } from "./december";
 
 export default function BodyDhaka({ language }) {
-  const [MONTH, setMONTH] = useState(0);
+  const [MONTH, setMONTH] = useState(1);
   const months = {
-    0: [],
-    1: [],
-    2: march,
-    3: april,
-    4: may,
-    5: june,
-    6: july,
-    7: august,
-    8: september,
-    9: october,
-    10: november,
-    11: december,
+    1: january,
+    2: february,
+    3: march,
+    4: april,
+    5: may,
+    6: june,
+    7: july,
+    8: august,
+    9: september,
+    10: october,
+    11: november,
+    12: december,
   };
   const TIME = MONTH && months[MONTH];
 
   const [DAY, setDAY] = useState();
 
   setInterval(() => {
-    setMONTH(new Date().getMonth());
+    let m = new Date().getMonth();
+    setMONTH(m + 1);
     setDAY(new Date().getDate());
   }, 1000);
 
