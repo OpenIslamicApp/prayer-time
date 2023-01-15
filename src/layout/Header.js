@@ -11,7 +11,7 @@ export default function Header({ menu, setMenu }) {
     <Container>
       {Time}
       <p>
-        Today: {new Date().getDate()}/{new Date().getMonth()}/
+        Today: {new Date().getDate()}/{new Date().getMonth()+1}/
         {new Date().getFullYear()}
       </p>
       <nav onClick={() => setMenu(!menu)}>
