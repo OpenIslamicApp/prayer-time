@@ -14,7 +14,7 @@ export default function Menu({
   return (
     <Container className={menu ? "open" : ""}>
       <div className="setting_container">
-        <label htmlFor="language">Select Language:</label>
+        <label htmlFor="language">Language:</label>
         <select
           name="language"
           id=""
@@ -27,7 +27,7 @@ export default function Menu({
         </select>
       </div>
       <div className="setting_container">
-        <label htmlFor="country">Select Country:</label>
+        <label htmlFor="country">Country:</label>
         <select
           name="country"
           id=""
@@ -40,21 +40,23 @@ export default function Menu({
 
       {/* states for Bangladesh */}
       <>
-        {country === "bd" ? (
-          <div className="setting_container">
-            <label htmlFor="state">Select State:</label>
-            <select
-              name="state"
-              id=""
-              value={state}
-              onChange={(e) => setState(e.target.value)}
-            >
-              <option value="dhaka">Dhaka</option>
-            </select>
-          </div>
-        ) : (
-          ""
-        )}
+        {
+          {
+            bd: (
+              <div className="setting_container">
+                <label htmlFor="state">State:</label>
+                <select
+                  name="state"
+                  id=""
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                >
+                  <option value="dhaka">Dhaka</option>
+                </select>
+              </div>
+            ),
+          }[country]
+        }
       </>
 
       <div className="setting_container">
@@ -80,17 +82,19 @@ const Container = styled.nav`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  backdrop-filter: blur(4px);
   &.open {
     transform: translateY(0);
   }
   .setting_container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     font-size: calc(16px + 2vmin);
     select {
-      font-size: calc(13px + 2vmin);
-      color: var(--color-gray);
+      font-size: calc(12px + 2vmin);
+      color: var(--color-th);
       background-color: var(--bg-sec);
       padding: 10px 20px;
       border: none;
@@ -98,8 +102,8 @@ const Container = styled.nav`
       outline: none;
     }
     button {
-      font-size: calc(13px + 2vmin);
-      color: var(--color-gray);
+      font-size: calc(12px + 2vmin);
+      color: var(--color-th);
       background-color: var(--bg-sec);
       padding: 10px 20px;
       border: none;
