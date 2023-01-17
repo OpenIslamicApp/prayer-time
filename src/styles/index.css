@@ -7,7 +7,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+* {
+  scroll-behavior: smooth;
+}
 :root {
   --bg: #282c34;
   --nav-bg: rgba(0, 0, 0, 0.7);
@@ -19,6 +21,17 @@
   --color-gray: #c2c2c2;
   --color-gray-deep: #9d9d9d;
   --black: #000;
+}
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  border-radius: 4px;
+  color: var(--color-th);
+}
+*::-webkit-scrollbar-thumb {
+  border: 5px solid var(--color-th);
+  border-radius: 4px;
+  background: transparent;
 }
 
 body {
