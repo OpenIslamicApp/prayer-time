@@ -27,7 +27,23 @@ export default function DUA() {
           )}
         </>
       )}
-      <h1 className="dua_title">Regular After Prayer:</h1>
+      {Hour && ((Hour >= 4 && Hour <= 6) || (Hour >= 17 && Hour <= 18)) ? (
+        <>
+          <h1>
+            After Farz Prayer of{" "}
+            {Hour >= 4 && Hour <= 6
+              ? "Fajar"
+              : Hour >= 17 && Hour <= 18 && "Maghrib"}
+            :
+          </h1>
+          {React.Children.toArray(
+            fajarMagribPrayer.map((dua) => <DuaContainer {...dua} />)
+          )}
+        </>
+      ) : (
+        false
+      )}
+      <h1 className="dua_title">Regular After Farz Prayer:</h1>
       {React.Children.toArray(
         regularAfterPrayer.map((dua) => <DuaContainer {...dua} />)
       )}
