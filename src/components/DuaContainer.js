@@ -13,6 +13,9 @@ export default function DuaContainer({ arabic, english, times }) {
       audio.play();
       navigator.vibrate(300);
     }
+    if (Number(times) - 1 === Counter) {
+      audio.play();
+    }
   };
   return (
     <div className="dua_container">
