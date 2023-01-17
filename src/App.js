@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// style
-import { HomeContainer } from "./styles/style";
-
 // layout
 import Header from "./layout/Header";
 import Menu from "./layout/Menu";
@@ -17,8 +14,9 @@ import { timeKeyArabic } from "./data/timeKey/arabic";
 // components
 import InstallButton from "./components/InstallButton";
 import AppInfo from "./components/AppInfo";
+import styled from "styled-components";
 
-function App() {
+export default function App() {
   const [menu, setMenu] = useState(false);
   const [InstallModal, setInstallModal] = useState(false);
 
@@ -63,7 +61,7 @@ function App() {
 
   return (
     <>
-      <HomeContainer>
+      <Container>
         <Header menu={menu} setMenu={setMenu} />
         <Menu
           menu={menu}
@@ -76,7 +74,7 @@ function App() {
           appInfoModal={setAppInfoModal}
         />
         <Body language={LANGU} country={Country} state={State} />
-      </HomeContainer>
+      </Container>
       <Footer appInfoModal={setAppInfoModal} />
       {InstallModal === true && (
         <InstallButton
@@ -85,9 +83,26 @@ function App() {
           closeModal={setInstallModal}
         />
       )}
-      {AppInfoModal === true && (<AppInfo modalState={AppInfoModal} closeModal={setAppInfoModal} />)}
+      {AppInfoModal === true && (
+        <AppInfo modalState={AppInfoModal} closeModal={setAppInfoModal} />
+      )}
     </>
   );
 }
 
-export default App;
+const Container = styled.main`
+  background-color: var(--bg-sec);
+  max-width: 500px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px;
+  .body {
+    padding-top: 40px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 358px) {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
