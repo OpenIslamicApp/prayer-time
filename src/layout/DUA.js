@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import DuaContainer from "../components/DuaContainer";
 
 import regularAfterPrayer from "../data/dua/afterEvery.json";
+import FridayPrayer from "../data/dua/friday.json";
+import fajarMagribPrayer from "../data/dua/fajarMagrib.json";
 
 export default function DUA() {
+  const [DAY, setDAY] = useState();
+  const [Hour, setHour] = useState();
+
+  useEffect(() => {
+    let day = new Date().getDay();
+    let hour = new Date().getHours();
+    setDAY(day);
+    setHour(hour);
+  }, []);
+
   return (
     <Container>
+      {DAY && DAY === 5 && (
+        <>
+          <h1>Friday Special:</h1>
+          {React.Children.toArray(
+            FridayPrayer.map((dua) => <DuaContainer {...dua} />)
+          )}
+        </>
+      )}
       <h1 className="dua_title">Regular After Prayer:</h1>
       {React.Children.toArray(
         regularAfterPrayer.map((dua) => <DuaContainer {...dua} />)
