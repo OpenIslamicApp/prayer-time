@@ -6,15 +6,20 @@ export default function DuaContainer({ arabic, english, times }) {
   const audio = new Audio("/error.mp3");
 
   const handleCount = () => {
-    if (Number(times) > Counter) {
+    if (times !== 0) {
+      if (Number(times) - 1 === Counter) {
+        audio.play();
+      }
+      if (Number(times) > Counter) {
+        setCounter(Counter + 1);
+        navigator.vibrate(50);
+      } else {
+        audio.play();
+        navigator.vibrate(300);
+      }
+    } else {
       setCounter(Counter + 1);
       navigator.vibrate(50);
-    } else {
-      audio.play();
-      navigator.vibrate(300);
-    }
-    if (Number(times) - 1 === Counter) {
-      audio.play();
     }
   };
   return (
@@ -29,7 +34,7 @@ export default function DuaContainer({ arabic, english, times }) {
             {Counter < 10 ? "0" : ""}
             {Counter}
           </span>
-          /{times}
+          /{times && times !== 0 ? times : <i>&infin;</i>}
         </h2>
       </div>
     </div>
