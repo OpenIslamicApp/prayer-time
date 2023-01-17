@@ -25,10 +25,11 @@ export default function Footer({ appInfoModal }) {
 }
 
 const Container = styled.footer`
-  position: sticky;
+  /* position: sticky;
+  position: -webkit-sticky;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   width: 100%;
   padding: 20px;
   text-align: center;
