@@ -5,6 +5,7 @@ import DuaContainer from "../components/DuaContainer";
 import regularAfterPrayer from "../data/dua/afterEvery.json";
 import FridayPrayer from "../data/dua/friday.json";
 import fajarMagribPrayer from "../data/dua/fajarMagrib.json";
+import allTime from "../data/dua/anytime.json";
 
 export default function DUA() {
   const [DAY, setDAY] = useState();
@@ -47,6 +48,8 @@ export default function DUA() {
       {React.Children.toArray(
         regularAfterPrayer.map((dua) => <DuaContainer {...dua} />)
       )}
+      <h1 className="dua_title">All time:</h1>
+      {React.Children.toArray(allTime.map((dua) => <DuaContainer {...dua} />))}
     </Container>
   );
 }
