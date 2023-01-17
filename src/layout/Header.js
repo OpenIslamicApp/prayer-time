@@ -11,7 +11,7 @@ export default function Header({ menu, setMenu }) {
     <Container>
       {Time}
       <p>
-        Today: {new Date().getDate()}/{new Date().getMonth()+1}/
+        Today: {new Date().getDate()}/{new Date().getMonth() + 1}/
         {new Date().getFullYear()}
       </p>
       <nav onClick={() => setMenu(!menu)}>
@@ -41,8 +41,8 @@ const Container = styled.header`
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--bg-sec);
-    box-shadow: var(--bg-sec-shadow);
+    /* background-color: var(--bg-sec); */
+    /* box-shadow: var(--bg-sec-shadow); */
     border-radius: 50%;
     height: 100%;
     aspect-ratio: 1/1;
