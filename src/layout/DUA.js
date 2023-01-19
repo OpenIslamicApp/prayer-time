@@ -7,6 +7,8 @@ import FridayPrayer from "../data/dua/friday.json";
 import fajarMagribPrayer from "../data/dua/fajarMagrib.json";
 import allTime from "../data/dua/anytime.json";
 
+import { BiLinkExternal } from "react-icons/bi";
+
 export default function DUA() {
   const [DAY, setDAY] = useState();
   const [Hour, setHour] = useState();
@@ -50,6 +52,17 @@ export default function DUA() {
       )}
       <h1 className="dua_title">All time:</h1>
       {React.Children.toArray(allTime.map((dua) => <DuaContainer {...dua} />))}
+      <p className="dua_redirect">
+        See more on{" "}
+        <a
+          href="https://dua.oia.ahjim.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Dua App <BiLinkExternal />
+        </a>
+        .
+      </p>
     </Container>
   );
 }
@@ -61,6 +74,16 @@ const Container = styled.section`
   gap: 12px;
   & > .dua_title {
     margin: 8px 0;
+  }
+  & > .dua_redirect {
+    font-size: calc(10px + 2vmin);
+    & > a {
+      color: var(--color-th);
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   .dua_container {
     display: grid;
