@@ -3,7 +3,7 @@ import styled from "styled-components";
 export default function InstallButton({
   deferredPrompt,
   setDeferredPrompt,
-  closeModal
+  closeModal,
 }) {
   const handleClick = () => {
     deferredPrompt.prompt();
@@ -25,8 +25,8 @@ export default function InstallButton({
       <div className="modal__sc">
         <div className="modal_container">
           <h2 className="modal_container__title">
-            Install <em>Prayer Time </em> App to see time of prayer even when
-            you are offline.
+            Install <em>Dua </em> App to see time of prayer even when you are
+            offline.
           </h2>
 
           <div className="modal_container__button">
@@ -38,7 +38,7 @@ export default function InstallButton({
             </button>
             <button
               className="modal_container__button_close"
-              onClick={()=>closeModal(false)}
+              onClick={() => closeModal(false)}
             >
               Close
             </button>
@@ -135,15 +135,17 @@ const Container = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       padding: 10px;
       gap: 24px;
-      flex-wrap: wrap;
       &_close {
-        padding: 10px 22.5px 12px;
+        padding: 10px 32px 12px;
         display: inline;
-        color: var(--color-gray);
+        color: var(--bg);
+        font-size: calc(6px + 2vmin);
+        font-weight: 500;
         text-transform: capitalize;
-        background: var(--yellow-gradient-bg);
+        background: var(--color-th);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25),
           inset -4px -4px 8px rgba(0, 0, 0, 0.25), inset 4px 4px 8px #ffc942;
         border-radius: 12px;
@@ -154,7 +156,7 @@ const Container = styled.div`
         outline: none;
         &:hover,
         &:focus {
-          box-shadow: 0px 0px 5px 3px rgba(255, 201, 66, 0.4);
+          box-shadow: 0px 0px 10px 1px rgba(255, 201, 66, 0.4);
         }
         @media (max-width: 548px) {
           width: 100%;
